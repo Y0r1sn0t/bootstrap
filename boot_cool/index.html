@@ -1,0 +1,686 @@
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project Bootstrap</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    >
+
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+
+        /* Menu superior */
+        .navbar {
+            padding: 12px;
+        }
+
+        .nav-link {
+            color: white;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: #b8eaff;
+        }
+
+        .nav-link.active {
+            background-color: #084298 !important;
+            color: white !important;
+            border-radius: 8px;
+        }
+
+        /* Carrossel */
+        #slide-container {
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .carousel-item img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: contain;
+            background-color: #111;
+        }
+
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.65);
+            border-radius: 12px;
+            padding: 12px;
+            bottom: 25px;
+        }
+
+        .carousel-caption a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .carousel-caption a:hover {
+            color: #0dcaf0;
+            text-decoration: underline;
+        }
+
+        /* Seções */
+        .content-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 25px;
+        }
+
+        .tip-card {
+            margin-bottom: 20px;
+        }
+
+        .tip-card h3 {
+            margin-bottom: 15px;
+        }
+
+        /* Help */
+        .contact-info {
+            font-size: 17px;
+            line-height: 2;
+        }
+
+        .contact-info a {
+            text-decoration: none;
+        }
+
+        /* Mensagem do botão Don't tap */
+        #warning {
+            display: none;
+        }
+
+        /* Telas menores */
+        @media (max-width: 576px) {
+            .carousel-caption {
+                padding: 5px;
+                bottom: 15px;
+            }
+
+            .carousel-caption h5 {
+                font-size: 14px;
+            }
+
+            .carousel-caption p {
+                font-size: 11px;
+                margin-bottom: 3px;
+            }
+
+            .content-section {
+                padding: 15px;
+            }
+
+            .navbar .nav {
+                gap: 5px !important;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- MENU SUPERIOR -->
+    <header>
+        <nav class="navbar bg-primary">
+
+            <div class="container justify-content-center">
+
+                <ul class="nav nav-pills gap-3">
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link active"
+                            data-bs-toggle="tab"
+                            href="#home"
+                        >
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            data-bs-toggle="tab"
+                            href="#tips"
+                        >
+                            Tips
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            data-bs-toggle="tab"
+                            href="#about"
+                        >
+                            About
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            data-bs-toggle="tab"
+                            href="#help"
+                        >
+                            Help
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- CONTEÚDO DAS ABAS -->
+    <main class="tab-content">
+
+
+        <!-- HOME -->
+        <section
+            class="tab-pane fade show active"
+            id="home"
+        >
+
+            <!-- BOTÕES -->
+            <section class="container my-4">
+
+                <div class="d-grid gap-2 col-6 col-md-4 mx-auto">
+
+                    <button class="btn btn-primary" type="button">
+                        Tap
+                    </button>
+
+                    <button
+                        class="btn btn-primary"
+                        type="button"
+                        onclick="showMessage()"
+                    >
+                        Don't tap
+                    </button>
+
+                    <!-- MENSAGEM -->
+                    <p
+                        id="warning"
+                        class="text-danger text-center fw-bold mt-2"
+                    >
+                        Please don't press this button
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- CARROSSEL -->
+            <section class="container" id="slide-container">
+
+                <div
+                    id="slider"
+                    class="carousel slide"
+                    data-bs-ride="carousel"
+                >
+
+                    <!-- INDICADORES -->
+                    <div class="carousel-indicators">
+
+                        <button
+                            type="button"
+                            data-bs-target="#slider"
+                            data-bs-slide-to="0"
+                            class="active"
+                            aria-current="true"
+                            aria-label="Soul Eater"
+                        ></button>
+
+                        <button
+                            type="button"
+                            data-bs-target="#slider"
+                            data-bs-slide-to="1"
+                            aria-label="JoJo"
+                        ></button>
+
+                        <button
+                            type="button"
+                            data-bs-target="#slider"
+                            data-bs-slide-to="2"
+                            aria-label="Hunter x Hunter"
+                        ></button>
+
+                    </div>
+
+
+                    <!-- IMAGENS -->
+                    <div class="carousel-inner">
+
+                        <!-- SOUL EATER -->
+                        <div class="carousel-item active">
+
+                            <img
+                                src="images/soul_eater.jpeg"
+                                alt="Soul Eater"
+                            >
+
+                            <div class="carousel-caption">
+
+                                <h5>
+                                    <a
+                                        href="https://anime-total.fandom.com/pt-br/wiki/Soul_Eater"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Soul Eater
+                                    </a>
+                                </h5>
+
+                                <p>Conheça mais sobre o anime.</p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- JOJO -->
+                        <div class="carousel-item">
+
+                            <img
+                                src="images/jojo.jpeg"
+                                alt="JoJo's Bizarre Adventure"
+                            >
+
+                            <div class="carousel-caption">
+
+                                <h5>
+                                    <a
+                                        href="https://jojowiki.com/JoJo%27s_Bizarre_Adventure/pt-br"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        JoJo's Bizarre Adventure
+                                    </a>
+                                </h5>
+
+                                <p>Conheça mais sobre o anime.</p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- HUNTER X HUNTER -->
+                        <div class="carousel-item">
+
+                            <img
+                                src="images/hunter.jpeg"
+                                alt="Hunter x Hunter"
+                            >
+
+                            <div class="carousel-caption">
+
+                                <h5>
+                                    <a
+                                        href="https://hunterxhunter.fandom.com/wiki/Hunter_%C3%97_Hunter"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Hunter x Hunter
+                                    </a>
+                                </h5>
+
+                                <p>Conheça mais sobre o anime.</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BOTÃO ANTERIOR -->
+                    <button
+                        class="carousel-control-prev"
+                        type="button"
+                        data-bs-target="#slider"
+                        data-bs-slide="prev"
+                    >
+
+                        <span class="carousel-control-prev-icon"></span>
+
+                        <span class="visually-hidden">
+                            Anterior
+                        </span>
+
+                    </button>
+
+
+                    <!-- BOTÃO PRÓXIMO -->
+                    <button
+                        class="carousel-control-next"
+                        type="button"
+                        data-bs-target="#slider"
+                        data-bs-slide="next"
+                    >
+
+                        <span class="carousel-control-next-icon"></span>
+
+                        <span class="visually-hidden">
+                            Próximo
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- TIPS -->
+        <section
+            class="tab-pane fade"
+            id="tips"
+        >
+
+            <div class="container content-section">
+
+                <h1 class="text-center mb-4">
+                    Anime Tips
+                </h1>
+
+                <p class="text-center text-muted mb-5">
+                    Algumas observações e recomendações sobre os animes.
+                </p>
+
+
+                <!-- JOJO -->
+                <div class="card tip-card shadow-sm">
+
+                    <div class="card-header bg-primary text-white">
+
+                        <h3 class="mb-0">
+                            JoJo's Bizarre Adventure
+                        </h3>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <ul class="list-group list-group-flush">
+
+                            <li class="list-group-item">
+                                Tem um sistema de poder meio complicado.
+                            </li>
+
+                            <li class="list-group-item">
+                                Bizarrices sem fim.
+                            </li>
+
+                            <li class="list-group-item">
+                                Personagens meio confusos
+                                (na questão identificar gênero).
+                            </li>
+
+                            <li class="list-group-item">
+                                Muitas poses
+                                (extremamente bom para praticar desenhos).
+                            </li>
+
+                            <li class="list-group-item">
+                                Histórias cativantes e que te prendem
+                                sem necessariamente serem muito demoradas
+                                ou enroladas.
+                            </li>
+
+                            <li class="list-group-item">
+                                Mortes impactantes.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HUNTER X HUNTER -->
+                <div class="card tip-card shadow-sm">
+
+                    <div class="card-header bg-success text-white">
+
+                        <h3 class="mb-0">
+                            Hunter x Hunter
+                        </h3>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <ul class="list-group list-group-flush">
+
+                            <li class="list-group-item">
+                                História interessante e boa de se acompanhar.
+                            </li>
+
+                            <li class="list-group-item">
+                                Não tem fim.
+                            </li>
+
+                            <li class="list-group-item">
+                                Sistema de poder extremamente complexo,
+                                mas muito completo e interessante.
+                            </li>
+
+                            <li class="list-group-item">
+                                Poucas mortes.
+                            </li>
+
+                            <li class="list-group-item">
+                                Neferpitou :3
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SOUL EATER -->
+                <div class="card tip-card shadow-sm">
+
+                    <div class="card-header bg-dark text-white">
+
+                        <h3 class="mb-0">
+                            Soul Eater
+                        </h3>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <ul class="list-group list-group-flush">
+
+                            <li class="list-group-item">
+                                Personagens cativantes e inatos.
+                            </li>
+
+                            <li class="list-group-item">
+                                Muito ecchi.
+                            </li>
+
+                            <li class="list-group-item">
+                                História de ritmo confortável.
+                            </li>
+
+                            <li class="list-group-item">
+                                Comédia ótima.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ABOUT -->
+        <section
+            class="tab-pane fade"
+            id="about"
+        >
+
+            <div class="container content-section">
+
+                <div class="card shadow-sm">
+
+                    <div class="card-header bg-primary text-white">
+
+                        <h2 class="mb-0">
+                            About
+                        </h2>
+
+                    </div>
+
+                    <div class="card-body p-4">
+
+                        <h4>
+                            Sobre o projeto
+                        </h4>
+
+                        <p class="fs-5 mt-3">
+
+                            Criei esse site com o propósito de testar
+                            meus conhecimentos sobre Bootstrap e Framework;
+                            claro que fiz com o auxílio da IA para terminar,
+                            mas fiz a maior parte sozinho por minha própria
+                            conta (mim dê nota boa Wagner :_)
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- HELP -->
+        <section
+            class="tab-pane fade"
+            id="help"
+        >
+
+            <div class="container content-section">
+
+                <div class="card shadow-sm">
+
+                    <div class="card-header bg-primary text-white">
+
+                        <h2 class="mb-0">
+                            Help & Support
+                        </h2>
+
+                    </div>
+
+                    <div class="card-body p-4">
+
+                        <h4>
+                            Precisa de ajuda?
+                        </h4>
+
+                        <p class="fs-5 mt-3">
+
+                            Caso queira relatar algum erro, ou deixar
+                            alguma recomendação de como podemos melhorar
+                            sua estádia no site, nos contate:
+
+                        </p>
+
+
+                        <div class="contact-info mt-4">
+
+                            <p>
+                                <strong>WhatsApp:</strong>
+
+                                <a
+                                    href="https://wa.me/5517997285743"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    17997285743
+                                </a>
+                            </p>
+
+
+                            <p>
+                                <strong>Gmail:</strong>
+
+                                <a href="mailto:Iuryhort@gamil.com">
+                                    Iuryhort@gamil.com
+                                </a>
+                            </p>
+
+
+                            <p>
+                                <strong>Discord:</strong>
+
+                                Pali62
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- BOOTSTRAP JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- FUNÇÃO DO BOTÃO DON'T TAP -->
+    <script>
+
+        function showMessage() {
+
+            document.getElementById("warning").style.display = "block";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
